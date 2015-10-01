@@ -1,0 +1,93 @@
+Problem Statement
+    
+A knight is a chess piece that moves by simultaneously shifting one square along one axis and two 
+squares along the other. A knight's tour of a chessboard is a sequence of moves made by a knight 
+such that each square of the board is visited exactly once. If the final position in the tour is a 
+knight's move away from the first position, the tour is called re-entrant. The picture below shows 
+a re-entrant knight's tour for a 6x6 chessboard.
+ 
+Josh is trying to find another re-entrant knight's tour on a 6x6 chessboard. He needs a program to 
+make sure he doesn't make any mistakes.
+You will be given a String[] cells containing the sequence of cells visited by the knight in 
+order. Each element represents a single cell and is in the form "<letter><digit>" (quotes for 
+clarity), where <letter> is a letter representing the column and <digit> is a digit representing 
+the row. "A1" represents the bottom-left corner of the board, and "F6" represents the top-right 
+corner (see the picture). Return the String "Valid" if cells contains a valid re-entrant knight's 
+tour, and return "Invalid" otherwise (all quotes for clarity).
+
+Definition
+    
+Class:
+	KnightTour
+Method:
+	checkTour
+Parameters:
+	String[]
+Returns:
+	String
+Method signature:
+	String checkTour(String[] cells)
+	(be sure your method is public)
+
+Limits
+    
+Time limit (s):
+	2.000
+Memory limit (MB):
+	64
+Constraints	- cells will contain exactly 36 elements.
+			- Each element of cells will be in the form "<letter><digit>" (quotes for clarity), where <letter> is an uppercase letter between 'A' and 'F', inclusive, and <digit> is a digit between '1' and '6', inclusive.
+
+Examples
+0)
+{"A1", "B3", "A5", "C6", "E5", "F3",
+ "D2", "F1", "E3", "F5", "D4", "B5",
+ "A3", "B1", "C3", "A2", "C1", "E2",
+ "F4", "E6", "C5", "A6", "B4", "D5",
+ "F6", "E4", "D6", "C4", "B6", "A4",
+ "B2", "D1", "F2", "D3", "E1", "C2"}
+Returns: "Valid"
+The example from the statement.
+
+1)
+{"A1", "C2", "E3", "F5", "D4", "B3",
+ "A1", "C2", "E3", "F5", "D4", "B3", 
+ "A1", "C2", "E3", "F5", "D4", "B3", 
+ "A1", "C2", "E3", "F5", "D4", "B3", 
+ "A1", "C2", "E3", "F5", "D4", "B3", 
+ "A1", "C2", "E3", "F5", "D4", "B3"}
+Returns: "Invalid"
+Some cells are not visited.
+
+2)
+{"D4", "F5", "D6", "B5", "A3", "B1", 
+ "D2", "F1", "E3", "D1", "F2", "E4", 
+ "F6", "D5", "B6", "A4", "B2", "C4", 
+ "A5", "C6", "E5", "F3", "E1", "C2", 
+ "A1", "B3", "C5", "E6", "F4", "E2", 
+ "C3", "A2", "C1", "D3", "B4", "A6"}
+Returns: "Invalid"
+This tour is not re-entrant.
+
+3)
+{"D4", "F5", "D6", "B5", "A3", "B1", 
+ "D2", "F1", "E3", "D1", "F2", "E4", 
+ "F6", "D5", "B6", "A4", "B2", "C4", 
+ "A5", "C6", "E5", "F3", "E1", "C2", 
+ "A1", "B3", "C5", "A6", "B4", "A2", 
+ "C3", "E2", "C1", "D3", "F4", "E6"}
+Returns: "Valid"
+
+4)
+{"C5", "D3", "F2", "D1", "B2", "A4", 
+ "B6", "D5", "C3", "E4", "F6", "B3", 
+ "A1", "C2", "E1", "F3", "E5", "C6", 
+ "A5", "C4", "A3", "B1", "D2", "F1", 
+ "E3", "F5", "D6", "B5", "D4", "E6", 
+ "F4", "E2", "C1", "A2", "B4", "A6"}
+Returns: "Invalid"
+"F6-B3" is not a valid knight move.
+
+This problem statement is the exclusive and proprietary property of TopCoder, Inc. Any 
+unauthorized use or reproduction of this information without the prior written consent of 
+TopCoder, Inc. is strictly prohibited. (c)2003, TopCoder, Inc. All rights reserved.
