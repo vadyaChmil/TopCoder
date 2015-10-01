@@ -1,0 +1,77 @@
+Problem Statement
+    
+You are given a String[] numbers, each element of which represents a positive integer written 
+using the letters 'A' through 'J' instead of digits. You know that each letter represents 
+exactly one digit, and each digit is represented by exactly one letter. You also know that 
+none of the integers start with zero. Return the maximum possible sum of the given integers.
+Definition
+    
+Class:
+	EncodedSum
+Method:
+	maximumSum
+Parameters:
+	String[]
+Returns:
+	long
+Method signature:
+	long maximumSum(String[] numbers) (be sure your method is public)
+Limits
+    
+	Time limit (s):
+		2.000
+	Memory limit (MB):
+		64
+Constraints
+	- numbers will contain between 1 and 50 elements, inclusive.
+	- Each element of numbers will contain between 1 and 12 characters, inclusive.
+	- Each element of numbers will contain only uppercase letters between 'A' and 'J', inclusive.
+	- There will be at least one letter between 'A' and 'J', inclusive, that never occurs as the 
+first character of any element of numbers.
+
+Examples
+
+0)
+{"ABC",
+ "BCA"}
+Returns: 1875
+B = 9
+A = 8
+C = 7
+
+1)
+{"ABCDEFGHIJ"}
+Returns: 9876543210
+
+2)
+{"ABCDEFGHIJ",
+ "J"}
+Returns: 9876543202
+We can not use J as 0. So, 
+J = 1
+I = 0
+
+3) 
+{"A", 
+ "BB", 
+ "CCC", 
+ "DDDD", 
+ "EEEEE", 
+ "FFFFFF", 
+ "GGGGGGG", 
+ "HHHHHHHH", 
+ "IIIIIIIII", 
+ "AJJJJJJJJJ"}
+Returns: 9973936905
+
+4)
+{"GHJIDDD",
+ "AHHCCCA",
+ "IIJCEJ",
+ "F",
+ "HDBIGFJAAJ"}
+Returns: 9888114550
+
+This problem statement is the exclusive and proprietary property of TopCoder, Inc. Any 
+unauthorized use or reproduction of this information without the prior written consent 
+of TopCoder, Inc. is strictly prohibited. (c)2003, TopCoder, Inc. All rights reserved.
