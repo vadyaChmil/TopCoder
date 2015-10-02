@@ -1,0 +1,70 @@
+Problem Statement
+    
+Given a positive integer N, raise each of its digits to the K-th power and sum those values 
+to get SK(N). For example, S2(65) = 62 + 52 = 61. Now, consider a sequence N, SK(N), SK(SK(N)) 
+and so on. The happiness of N with respect to K is the smallest number in this sequence.
+You will be given three ints A, B and K. Calculate the happiness of each integer between A and B, 
+inclusive, with respect to K and return their sum.
+
+Definition
+    
+Class:
+	ExtendedHappyNumbers
+Method:
+	calcTheSum
+Parameters:
+	int, int, int
+Returns:
+	long
+Method signature:
+	long calcTheSum(int A, int B, int K)
+	(be sure your method is public)
+
+Limits
+    
+Time limit (s):
+	2.000
+Memory limit (MB):
+	64
+Constraints
+	- A will be between 1 and 1,000,000, inclusive.
+	- B will be between A and 1,000,000, inclusive.
+	- K will be between 1 and 6, inclusive.
+
+Examples
+
+0)
+13
+13
+2
+Returns: 1
+The sequence for 13 is 13, 10, 1, 1...
+
+1)
+1
+5
+2
+Returns: 14
+The sequences for numbers 1 to 5 are: 1: 1, 1, 1... 2: 2, 4, 16, 37, 58, 89, 145, 42, 20, 4... 3: 3, 9, 81, 65, 61, 37, 58, 89, 145, 42, 20, 4, 16, 37... 4: 4, 16, 37, 58, 89, 145, 42, 20, 4... 5: 5, 25, 29, 85, 89, 145, 42, 20, 4, 16, 37, 58, 89... 
+
+2)
+10
+99
+1
+Returns: 450
+
+3)
+535
+538
+3
+Returns: 820
+
+4)    
+100000
+400000
+6
+Returns: 5169721292
+
+This problem statement is the exclusive and proprietary property of TopCoder, Inc. Any 
+unauthorized use or reproduction of this information without the prior written consent of 
+TopCoder, Inc. is strictly prohibited. (c)2003, TopCoder, Inc. All rights reserved.
