@@ -1,54 +1,55 @@
 package com.topcoder.room379.srm334.div1_500;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class ExtendedHappyNumbers {
 
+	long[] valueInDegree;
+
 	public long calcTheSum(int A, int B, int K) {
 		long happiness = 0;
-		List<Integer> raises = new ArrayList<>();
+		Set<Integer> raises = new TreeSet<>();
+		valueInDegree = countValueInDegree(K);
 
 		for (int integer = A; integer <= B; integer++) {
 			int raise = integer;
 			raises.add(raise);
 			while (true) {
-				raise = raiseInteger(raise, K);
-				if (raises.contains(raise)) {
-					happiness += smallestNumber(raises);
+				raise = raiseInteger(raise);
+				if (!raises.add(raise)) {
+					Iterator<Integer> iterator = raises.iterator();
+					happiness += iterator.next();
 					raises.clear();
 					break;
 				}
-				raises.add(raise);
 			}
 		}
 		return happiness;
 	}
 
-	private int smallestNumber(List<Integer> raises) {
-		Collections.sort(raises, new Comparator<Integer>() {
-			public int compare(Integer element1, Integer element2) {
-				return element1 - element2;
-			}
-		});
-		return raises.get(0);
+	private long[] countValueInDegree(int K) {
+		long[] valueInDegree = new long[10];
+		for (int index = 0; index < valueInDegree.length; index++) {
+			valueInDegree[index] = (int) Math.pow(index, K);
+		}
+		return valueInDegree;
 	}
 
-	private int raiseInteger(int A, int K) {
+	private int raiseInteger(int raise) {
 		int result = 0;
-		StringBuilder raiseString = new StringBuilder();
-		raiseString.append(A);
-		int[] digits = new int[raiseString.length()];
-		for (int index = 0; index < digits.length; index++) {
-			if (raiseString.charAt(index) == '0') {
-				continue;
+		while (true) {
+			if (raise < 10) {
+				result += valueInDegree[raise];
+				break;
 			}
-			int digit = Integer.parseInt(String.valueOf(raiseString.charAt(index)));
-			result += Math.pow(digit, K);
+			int index = raise % 10;
+			if (index != 0) {
+				result += valueInDegree[index];
+			}
+			raise = raise / 10;
 		}
 		return result;
 	}
-
 }

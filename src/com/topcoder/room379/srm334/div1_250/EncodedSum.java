@@ -11,27 +11,28 @@ import java.util.Map;
 public class EncodedSum {
 
 	public long maximumSum(String[] numbers) {
-		Map<Character, Integer> mapCharacters = new HashMap<Character, Integer>();
+		Map<Character, Double> mapCharacters = new HashMap<Character, Double>();
 		for (String number : numbers) {
 			int size = number.length();
 			char[] letters = number.toCharArray();
 			for (int index = 0; index < size; index++) {
 				if (!mapCharacters.containsKey(letters[index])) {
-					mapCharacters.put(letters[index], (int) (Math.pow(10, size - index - 1)));
+					mapCharacters.put(letters[index], (Math.pow(10, size - index - 1)));
 				} else {
-					int temporary = mapCharacters.get(letters[index]) + (int) (Math.pow(10, size - index - 1));
+					double temporary = mapCharacters.get(letters[index])
+							+ (Math.pow(10, size - index - 1));
 					mapCharacters.put(letters[index], temporary);
 				}
 			}
 		}
-		
+
 		List<Character> listCharacters = new ArrayList<>(mapCharacters.keySet());
 		Collections.sort(listCharacters, new Comparator<Character>() {
 			public int compare(Character element1, Character element2) {
-				return mapCharacters.get(element2) - mapCharacters.get(element1);
+				return (int) (mapCharacters.get(element2) - mapCharacters.get(element1));
 			}
 		});
-		
+
 		if (listCharacters.size() == 10) {
 			for (int index = 8; index > 0; index--) {
 				char endChar = listCharacters.get(9);
@@ -43,7 +44,7 @@ public class EncodedSum {
 				}
 			}
 		}
-		
+
 		Map<Character, Integer> sortedMapCharacters = new LinkedHashMap<Character, Integer>();
 		for (int index = 0; index < listCharacters.size(); index++) {
 			sortedMapCharacters.put(listCharacters.get(index), 9 - index);
