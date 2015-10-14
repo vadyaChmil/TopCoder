@@ -23,7 +23,7 @@ public class CreatePairs {
 				maximalSum += positiveValues[index];
 				continue;
 			}
-			if (index > 0) {
+			if (index > 0 && positiveValues[index - 1] > 1) {
 				maximalSum += positiveValues[index] * positiveValues[index - 1];
 				index--;
 			} else {
