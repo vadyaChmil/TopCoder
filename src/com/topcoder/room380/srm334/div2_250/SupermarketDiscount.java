@@ -10,16 +10,14 @@ public class SupermarketDiscount {
 
 		if (totalMoney < 50) {
 			return totalMoney;
-		} else if (totalMoney < 100) {
-			return totalMoney - 10;
+		} else if (goods[0] >= 50) {
+			return totalMoney - 30;
+		} else if (goods[1] >= 50) {
+			return totalMoney - 20;
+		} else if ((goods[0] + goods[1]) >= 50 && goods[2] >= 50) {
+			return totalMoney - 20;
 		} else {
-			if (goods[1] > 50) {
-				return totalMoney - 30;
-			} else if (goods[2] > 50) {
-				return totalMoney - 20;
-			} else {
-				return totalMoney - 10;
-			}
+			return totalMoney - 10;
 		}
 	}
 
